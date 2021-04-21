@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+vaz/com/cardapio/BuildConfig.java
+ vaz.com.cardapio.BuildConfig
