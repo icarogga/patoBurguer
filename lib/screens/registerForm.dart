@@ -80,24 +80,34 @@ class _RegisterState extends State<Register> {
         backgroundColor: main_color,
         automaticallyImplyLeading: false,
         title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              // ignore: deprecated_member_use
-              FlatButton(
-                  onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => GerenciarFunc(),
-                        ),
-                            (Route<dynamic> route) => false);
-                  },
-                  child: Image(
-                    image: AssetImage('assets/images/voltar.png'),
-                    width: 15.0,
-                  )),
+              SizedBox(
+                width: 45.0,
+                height: 80.0,
+                child:
+                // ignore: deprecated_member_use
+                FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => GerenciarFunc(),
+                          ),
+                              (Route<dynamic> route) => false);
+                    },
+                    child: Image(
+                      image: AssetImage('assets/images/voltar.png'),
+                      width: 15.0,
+                    )),
+              ),
+              Spacer(),
               Text("REGISTRAR",
                   style:
                   TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0)),
+              Spacer(),
+              SizedBox(
+                width: 45.0,
+                height: 80.0
+              )
             ]),
       ),
       body: Container(

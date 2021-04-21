@@ -105,89 +105,83 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
           backgroundColor: main_color,
           automaticallyImplyLeading: false,
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              // ignore: deprecated_member_use
-              FlatButton(
-                  onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => Admin(),
-                        ),
-                            (Route<dynamic> route) => false);
-                  },
-                  child: Image(
-                    image: AssetImage('assets/images/voltar.png'),
-                    width: 15.0,
-                  )),
+              SizedBox(
+                width: 45.0,
+                height: 80.0,
+                // ignore: deprecated_member_use
+                child: FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => Admin(),
+                          ),
+                              (Route<dynamic> route) => false);
+                    },
+                    child: Image(
+                      image: AssetImage('assets/images/voltar.png'),
+                      width: 15.0,
+                    )),
+              ),
+              Spacer(),
               Text("GERENCIAR",
                   style:
                   TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0)),
-              // ignore: deprecated_member_use
-              FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Register()),
-                    );
-                  },
-                  child: Image(
-                    image: AssetImage('assets/images/adicionar.png'),
-                    width: 23.0,
-                  )),
+              Spacer(),
+              SizedBox(
+                width: 50.0,
+                height: 80.0,
+                // ignore: deprecated_member_use
+                child: FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Register()),
+                      );
+                    },
+                    child: Image(
+                      image: AssetImage('assets/images/adicionar.png'),
+                    )),
+              )
             ],
           ),
         ),
-        body: Container(
-          color: Color(0xffF6F6F6),
-          child: ListView(children: <Widget>[
-            Divider(color: Color(0xffF6F6F6), height: 10.0),
-            StreamBuilder<QuerySnapshot>(
-                stream: usuarios.snapshots(),
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                  return ListView(
-                    padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    children: <Widget>[
-                      SizedBox(
-                          child: Container(
-                              padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                              width: MediaQuery.of(context).size.width - 50.0,
-                              height: MediaQuery.of(context).size.width + MediaQuery.of(context).size.width - 230,
-                              child: GridView.count(
-                                crossAxisCount: 2,
-                                primary: false,
-                                crossAxisSpacing: 10.0,
-                                mainAxisSpacing: 15.0,
-                                childAspectRatio: 0.9,
-                                children: [
-                                  if (!snapshot.hasData)
-                                    Center(child: CircularProgressIndicator())
-                                  else if(snapshot.connectionState == ConnectionState.waiting)
-                                    Center(child: CircularProgressIndicator())
-                                  else
-                                    for (var i in snapshot.data.docs)
-                                      if (i.get("admin") && i.get("email") != user)
-                                        _buildCard(i.get("email"), i.get("nome"),  i.get("senha"),
-                                            "administrador", context),
-                                  if (!snapshot.hasData)
-                                    Center(child: CircularProgressIndicator())
-                                  else if(snapshot.connectionState == ConnectionState.waiting)
-                                    Center(child: CircularProgressIndicator())
-                                  else
-                                    for (var i in snapshot.data.docs)
-                                      if (!i.get("admin") && i.get("email") != user)
-                                        _buildCard(i.get("email"), i.get("nome"), i.get("senha"),
-                                            "funcionario", context)
-                                ],
-                              )))
+        body: StreamBuilder<QuerySnapshot>(
+            stream: usuarios.snapshots(),
+            builder: (BuildContext context,
+                AsyncSnapshot<QuerySnapshot> snapshot) {
+              return Container(
+                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    primary: false,
+                    crossAxisSpacing: 10.0,
+                    mainAxisSpacing: 15.0,
+                    childAspectRatio: 0.9,
+                    children: [
+                      if (!snapshot.hasData)
+                        Center(child: CircularProgressIndicator())
+                      else if(snapshot.connectionState == ConnectionState.waiting)
+                        Center(child: CircularProgressIndicator())
+                      else
+                        for (var i in snapshot.data.docs)
+                          if (i.get("admin") && i.get("email") != user)
+                            _buildCard(i.get("email"), i.get("nome"),  i.get("senha"),
+                                "administrador", context),
+                      if (!snapshot.hasData)
+                        Center(child: CircularProgressIndicator())
+                      else if(snapshot.connectionState == ConnectionState.waiting)
+                        Center(child: CircularProgressIndicator())
+                      else
+                        for (var i in snapshot.data.docs)
+                          if (!i.get("admin") && i.get("email") != user)
+                            _buildCard(i.get("email"), i.get("nome"), i.get("senha"),
+                                "funcionario", context)
                     ],
-                  );
-                })
-          ]),
-        ));
+                  ));
+            }));
   }
 }
 
@@ -216,40 +210,20 @@ Widget _buildCard(String email, String nome, String senha, String tipo, BuildCon
               ),
               child: Column(
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.only(top: 30.0),
-                        child: Image(
-                          height: 83,
-                          width: 95.0,
-                          image: AssetImage('assets/images/$tipo.png'),
-                          alignment: Alignment.center,
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 52,
-                        left: 81,
-                        child: Container(
-                          padding: EdgeInsets.only(bottom: 30.0),
-                          child: Image(
-                            image: AssetImage('assets/images/editar.png'),
-                            width: 70.0,
-                          ),
-                        ),
-                      ),
-                    ],
-                    overflow: Overflow.visible,
+                  Expanded(child: Image(
+                    height: 83,
+                    width: 95.0,
+                    image: AssetImage('assets/images/$tipo.png'),
+                    alignment: Alignment.center,
+                  ),),
+                  Text(
+                    nome,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
-                  Expanded(
-                      child: SingleChildScrollView(
-                    child: Text(
-                      nome,
-                      style: TextStyle(
-                          fontSize: 14.0, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                  ))
                 ],
               ))));
 }
