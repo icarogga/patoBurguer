@@ -20,6 +20,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _currentIndex = 0;
   @override
   void initState() {
     super.initState();
@@ -57,11 +58,427 @@ class _HomeState extends State<Home> {
     }
   }
 
+  void _apertado(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    int _currentIndex = 0;
     final Size size = MediaQuery.of(context).size;
     final double categoryHeight = size.height * 0.9;
+    final tabs = [
+      SlidingUpPanel(
+        color: Color(0xffE8E8E8),
+        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)],
+        borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+        panelBuilder: (ScrollController sc) => _scrollingList0(sc),
+        minHeight: size.height / 2,
+        maxHeight: size.height,
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            height: size.height / 1000, //this fuckery doesn't do anything you can put whatever you want
+            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Especial\nda Raquel",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Descrição\ndo Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration: BoxDecoration(
+                      color: Colors.orangeAccent[200], borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Promoção\n2 por 1",
+                            style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "2 Pato Bacon\n pelo preço de 1",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Combo Família\nVegetariana",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "3 Pato Vegetariano\n Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      SlidingUpPanel(
+        color: Color(0xffE8E8E8),
+        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)],
+        borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+        panelBuilder: (ScrollController sc) => _scrollingList1(sc),
+        minHeight: size.height,
+        maxHeight: size.height,
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            height: size.height / 1000, //this fuckery doesn't do anything you can put whatever you want
+            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Especial\nda Raquel",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Descrição\ndo Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration: BoxDecoration(
+                      color: Colors.orangeAccent[200], borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Promoção\n2 por 1",
+                            style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "2 Pato Bacon\n pelo preço de 1",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Combo Família\nVegetariana",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "3 Pato Vegetariano\n Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      SlidingUpPanel(
+        color: Color(0xffE8E8E8),
+        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)],
+        borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+        panelBuilder: (ScrollController sc) => _scrollingList2(sc),
+        minHeight: size.height,
+        maxHeight: size.height,
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            height: size.height / 1000, //this fuckery doesn't do anything you can put whatever you want
+            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Especial\nda Raquel",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Descrição\ndo Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration: BoxDecoration(
+                      color: Colors.orangeAccent[200], borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Promoção\n2 por 1",
+                            style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "2 Pato Bacon\n pelo preço de 1",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Combo Família\nVegetariana",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "3 Pato Vegetariano\n Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      SlidingUpPanel(
+        color: Color(0xffE8E8E8),
+        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)],
+        borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+        panelBuilder: (ScrollController sc) => _scrollingList3(sc),
+        minHeight: size.height,
+        maxHeight: size.height,
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            height: size.height / 1000, //this fuckery doesn't do anything you can put whatever you want
+            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Especial\nda Raquel",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Descrição\ndo Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration: BoxDecoration(
+                      color: Colors.orangeAccent[200], borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Promoção\n2 por 1",
+                            style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "2 Pato Bacon\n pelo preço de 1",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 200,
+                  margin: EdgeInsets.only(right: 20),
+                  height: categoryHeight / 4,
+                  decoration:
+                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Combo Família\nVegetariana",
+                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "3 Pato Vegetariano\n Combo",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -215,111 +632,9 @@ class _HomeState extends State<Home> {
               )
             ]),
           )),
-      body: SlidingUpPanel(
-        color: Color(0xffE8E8E8),
-        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)],
-        borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
-        panelBuilder: (ScrollController sc) => _scrollingList(sc),
-        minHeight: size.height / 2,
-        maxHeight: size.height,
-        body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: Container(
-            height: size.height / 1000, //this fuckery doesn't do anything you can put whatever you want
-            margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 200,
-                  margin: EdgeInsets.only(right: 20),
-                  height: categoryHeight / 4,
-                  decoration:
-                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Especial\nda Raquel",
-                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Descrição\ndo Combo",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 200,
-                  margin: EdgeInsets.only(right: 20),
-                  height: categoryHeight / 4,
-                  decoration: BoxDecoration(
-                      color: Colors.orangeAccent[200], borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Promoção\n2 por 1",
-                            style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "2 Pato Bacon\n pelo preço de 1",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 200,
-                  margin: EdgeInsets.only(right: 20),
-                  height: categoryHeight / 4,
-                  decoration:
-                      BoxDecoration(color: Colors.deepPurple, borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Combo Família\nVegetariana",
-                          style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "3 Pato Vegetariano\n Combo",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          type: BottomNavigationBarType.shifting,
+          type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
           fixedColor: Colors.deepPurple,
           selectedFontSize: 14,
@@ -343,16 +658,13 @@ class _HomeState extends State<Home> {
               label: 'Combos',
             ),
           ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          }),
+          currentIndex: _currentIndex,
+          onTap: (_apertado)),
     );
   }
 }
 
-Widget _scrollingList(ScrollController sc) {
+Widget _scrollingList0(ScrollController sc) {
   CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
 
   return ListView.builder(
@@ -412,6 +724,195 @@ Widget _scrollingList(ScrollController sc) {
                                   if (i.get("tipo") == "Refrigerante" && i.get("foto") != null)
                                     _buildCard(
                                         i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context),
+                              if (!snapshot.hasData)
+                                Center(child: CircularProgressIndicator())
+                              else
+                                for (var i in snapshot.data.docs)
+                                  if (i.get("tipo") == "Combo" && i.get("foto") != null)
+                                    _buildCard(
+                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context)
+                            ],
+                          )))
+                ],
+              );
+            })
+      ]);
+    },
+  );
+}
+
+Widget _scrollingList1(ScrollController sc) {
+  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+
+  return ListView.builder(
+    physics: BouncingScrollPhysics(),
+    controller: sc,
+    itemCount: 1,
+    itemBuilder: (BuildContext context, int i) {
+      return Column(children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Color(0xffE8E8E8),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+          ),
+          padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                "Lanches",
+                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        StreamBuilder<QuerySnapshot>(
+            stream: cardapio.snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              return ListView(
+                padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: <Widget>[
+                  SizedBox(
+                      child: Container(
+                          padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 1.5,
+                          child: GridView.count(
+                            crossAxisCount: 2,
+                            primary: false,
+                            crossAxisSpacing: 10.0,
+                            mainAxisSpacing: 15.0,
+                            childAspectRatio: 0.9,
+                            children: [
+                              if (!snapshot.hasData)
+                                Center(child: CircularProgressIndicator())
+                              else
+                                for (var i in snapshot.data.docs)
+                                  if (i.get("tipo") == "Lanche" && i.get("foto") != null)
+                                    _buildCard(
+                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context)
+                            ],
+                          )))
+                ],
+              );
+            })
+      ]);
+    },
+  );
+}
+
+Widget _scrollingList2(ScrollController sc) {
+  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+
+  return ListView.builder(
+    physics: BouncingScrollPhysics(),
+    controller: sc,
+    itemCount: 1,
+    itemBuilder: (BuildContext context, int i) {
+      return Column(children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Color(0xffE8E8E8),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+          ),
+          padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                "Cardápio",
+                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        StreamBuilder<QuerySnapshot>(
+            stream: cardapio.snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              return ListView(
+                padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: <Widget>[
+                  SizedBox(
+                      child: Container(
+                          padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 1.5,
+                          child: GridView.count(
+                            crossAxisCount: 2,
+                            primary: false,
+                            crossAxisSpacing: 10.0,
+                            mainAxisSpacing: 15.0,
+                            childAspectRatio: 0.9,
+                            children: [
+                              if (!snapshot.hasData)
+                                Center(child: CircularProgressIndicator())
+                              else
+                                for (var i in snapshot.data.docs)
+                                  if (i.get("tipo") == "Refrigerante" && i.get("foto") != null)
+                                    _buildCard(
+                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context),
+                            ],
+                          )))
+                ],
+              );
+            })
+      ]);
+    },
+  );
+}
+
+Widget _scrollingList3(ScrollController sc) {
+  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+
+  return ListView.builder(
+    physics: BouncingScrollPhysics(),
+    controller: sc,
+    itemCount: 1,
+    itemBuilder: (BuildContext context, int i) {
+      return Column(children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Color(0xffE8E8E8),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+          ),
+          padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                "Cardápio",
+                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        StreamBuilder<QuerySnapshot>(
+            stream: cardapio.snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              return ListView(
+                padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: <Widget>[
+                  SizedBox(
+                      child: Container(
+                          padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 1.5,
+                          child: GridView.count(
+                            crossAxisCount: 2,
+                            primary: false,
+                            crossAxisSpacing: 10.0,
+                            mainAxisSpacing: 15.0,
+                            childAspectRatio: 0.9,
+                            children: [
                               if (!snapshot.hasData)
                                 Center(child: CircularProgressIndicator())
                               else
