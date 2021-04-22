@@ -584,30 +584,6 @@ class _HomeState extends State<Home> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
-
-              // Dúvidas
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 56.0, bottom: 16.0, right: 16.0),
-                    child: IconButton(
-                        icon: Icon(
-                          Icons.question_answer,
-                          color: Colors.deepPurple,
-                          size: 32.0,
-                        ),
-                        onPressed: (launchWhats)),
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(top: 56.0, bottom: 16.0),
-                      child: Text("Dúvidas",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
-                ],
-              ),
-              // Feedbacks
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -824,7 +800,7 @@ Widget _scrollingList2(ScrollController sc) {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                "Cardápio",
+                "Bebidas",
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
             ],
@@ -887,7 +863,7 @@ Widget _scrollingList3(ScrollController sc) {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                "Cardápio",
+                "Combos",
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
             ],
