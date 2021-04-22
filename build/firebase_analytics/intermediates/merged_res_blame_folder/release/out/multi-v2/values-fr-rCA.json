@@ -1,0 +1,82 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/vaz/AndroidStudioProjects/patoburguer/build/firebase_analytics/intermediates/res/merged/release/values-fr-rCA/values-fr-rCA.xml",
+            "map": [
+                {
+                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/600ae9dcb738ce264b9b4b2f862c355e/core-1.1.0/res/values-fr-rCA/values-fr-rCA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "325",
+                        "endColumns": "100",
+                        "endOffsets": "421"
+                    }
+                },
+                {
+                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/93cfac5e0a12f4fc9196d5403ec410ec/jetified-play-services-basement-17.0.0/res/values-fr-rCA/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "219",
+                        "endOffsets": "470"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "219",
+                        "endOffsets": "320"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/vaz/AndroidStudioProjects/patoburguer/build/firebase_analytics/intermediates/incremental/mergeReleaseResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
+            "map": [
+                {
+                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/600ae9dcb738ce264b9b4b2f862c355e/core-1.1.0/res/values-fr-rCA/values-fr-rCA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "325",
+                        "endColumns": "100",
+                        "endOffsets": "421"
+                    }
+                },
+                {
+                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/93cfac5e0a12f4fc9196d5403ec410ec/jetified-play-services-basement-17.0.0/res/values-fr-rCA/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "219",
+                        "endOffsets": "470"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "219",
+                        "endOffsets": "320"
+                    }
+                }
+            ]
+        }
+    ]
+}
