@@ -9,7 +9,7 @@
 
    <application
        android:requestLegacyExternalStorage="true"
-        android:label="patoburguer"
+        android:label="PB - Admin"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

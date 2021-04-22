@@ -1,6 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-vaz/com/patoburguer/MainActivity.java
- vaz.com.patoburguer.MainActivity
-vaz/com/patoburguer/BuildConfig.java
- vaz.com.patoburguer.BuildConfig

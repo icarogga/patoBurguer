@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:patoburguer/screens/editarPromocao.dart';
+import 'package:patoburguer/screens/editPromocao.dart';
 import 'package:patoburguer/screens/func.dart';
-import 'package:patoburguer/screens/registrarPromocao.dart';
+import 'package:patoburguer/screens/registerPromocao.dart';
 import 'admin.dart';
 import 'login.dart';
 
@@ -61,18 +61,6 @@ class _GerenciarPromocoesState extends State<GerenciarPromocoes> {
               SizedBox(
                 width: 50.0,
                 height: 80.0,
-                // ignore: deprecated_member_use
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegisterPromocao()),
-                      );
-                    },
-                    child: Image(
-                      image: AssetImage('assets/images/adicionar.png'),
-                    )),
               )
             ],
           ),
@@ -108,7 +96,22 @@ class _GerenciarPromocoesState extends State<GerenciarPromocoes> {
                         Center(child: CircularProgressIndicator())
                     ],
                   ));
-            }));
+            }),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: main_color,
+                child: Image(
+                  width: 20.0,
+                  image: AssetImage('assets/images/adicionar.png'),
+                ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => RegisterPromocao()),
+                );
+              },
+            ),
+    );
   }
 }
 

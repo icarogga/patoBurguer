@@ -66,17 +66,6 @@ class _GerenciarCardapioState extends State<GerenciarCardapio> {
                 SizedBox(
                   width: 52.0,
                   height: 80.0,
-                  // ignore: deprecated_member_use
-                  child: FlatButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => RegisterCardapio()),
-                        );
-                      },
-                      child: Image(
-                        image: AssetImage('assets/images/adicionar.png'),
-                      )),
                 )
               ]),
         ),
@@ -123,7 +112,21 @@ class _GerenciarCardapioState extends State<GerenciarCardapio> {
                             _buildCardCardapio(i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context)
                     ],
                   ));
-            }),);
+            }),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: main_color,
+              child: Image(
+                width: 20.0,
+                image: AssetImage('assets/images/adicionar.png'),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterCardapio()),
+                );
+              },
+            )
+      ,);
   }
 }
 

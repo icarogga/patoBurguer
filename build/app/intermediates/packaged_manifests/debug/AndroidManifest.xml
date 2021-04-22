@@ -24,7 +24,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="patoburguer"
+        android:label="PB - Admin"
         android:requestLegacyExternalStorage="true" >
         <activity
             android:name="vaz.com.patoburguer.MainActivity"

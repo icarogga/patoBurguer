@@ -137,17 +137,6 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
               SizedBox(
                 width: 50.0,
                 height: 80.0,
-                // ignore: deprecated_member_use
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Register()),
-                      );
-                    },
-                    child: Image(
-                      image: AssetImage('assets/images/adicionar.png'),
-                    )),
               )
             ],
           ),
@@ -189,7 +178,21 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
                                 i.get("senha"), "funcionario", context)
                     ],
                   ));
-            }));
+            }),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: main_color,
+              child: Image(
+                width: 20.0,
+                image: AssetImage('assets/images/adicionar.png'),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Register()),
+                );
+              },
+            ),
+    );
   }
 }
 

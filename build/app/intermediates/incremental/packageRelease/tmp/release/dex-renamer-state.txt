@@ -1,4 +1,0 @@
-#Tue Apr 20 01:27:49 BRT 2021
-base.0=/home/vaz/AndroidStudioProjects/patoburguer/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
