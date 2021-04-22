@@ -29,9 +29,13 @@ class _HomeState extends State<Home> {
 
 //Instagram
   void launchInsta() async {
-    const urlInsta = 'https://www.instagram.com/japa_manda_nuds/';
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    DocumentSnapshot result = await _firestore.collection("contatos").doc("VuuKmvF6cXb8iGhEZYvV").get();
+    final urlInsta = "https://www.instagram.com/" + result.get("link").toString();
     if (await canLaunch(urlInsta)) {
-      await launch(urlInsta);
+      await launch(
+          urlInsta,
+          universalLinksOnly: true);
     } else {
       throw 'Could not launch $urlInsta';
     }
@@ -50,9 +54,14 @@ class _HomeState extends State<Home> {
 
 //Rick Rolled
   void launchWhats() async {
-    const urlWhats = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    DocumentSnapshot result = await _firestore.collection("contatos").doc("EED447nsMLcjUfoEqmSC").get();
+    final urlWhats = "https://api.whatsapp.com/send?phone=55" + result.get("link").toString();
     if (await canLaunch(urlWhats)) {
-      await launch(urlWhats);
+      await launch(
+          urlWhats,
+          universalLinksOnly: true
+      );
     } else {
       throw 'Could not launch $urlWhats';
     }
