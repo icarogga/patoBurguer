@@ -4,6 +4,7 @@ import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:patoburguer/screens/cardapio.dart';
+import 'package:patoburguer/screens/promocao.dart';
 import 'package:patoburguer/screens/registerForm.dart';
 import 'admin.dart';
 import 'config.dart';
@@ -13,7 +14,6 @@ import 'login.dart';
 
 // ignore: must_be_immutable
 class Func extends StatelessWidget {
-  
   // ignore: non_constant_identifier_names
   Color main_color = Color(0xff8F4599);
 
@@ -23,9 +23,11 @@ class Func extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: main_color,
         automaticallyImplyLeading: false,
-        title: Text("ÁREA P/ FUNCIONÁRIO",
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0),),
+        title: Text(
+          "ÁREA P/ FUNCIONÁRIO",
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0),
+        ),
         centerTitle: true,
       ),
       body: Container(
@@ -46,9 +48,13 @@ class Func extends StatelessWidget {
             padding: EdgeInsets.all(19.0),
             child: Column(
               children: <Widget>[
-                Button("Alterar Cardápio", "cardapio", context, GerenciarCardapio()),
+                Button("Alterar Cardápio", "cardapio", context,
+                    GerenciarCardapio()),
                 Divider(color: Color(0xffF6F6F6), height: 15.0),
                 Button("Alterar Contatos", "contato", context, Contato()),
+                Divider(color: Color(0xffF6F6F6), height: 15.0),
+                Button("Promoções", "promo-icone-menu", context,
+                    GerenciarPromocoes()),
                 Divider(color: Color(0xffF6F6F6), height: 15.0),
                 Button("Configurações", "config", context, Config()),
                 SizedBox(height: 30.0),
@@ -63,8 +69,8 @@ class Func extends StatelessWidget {
                       padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                       child: Text(
                         "Sair",
-                        style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16.0, fontWeight: FontWeight.bold),
                       ),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0)),
@@ -72,8 +78,10 @@ class Func extends StatelessWidget {
                       color: main_color,
                       onPressed: () async {
                         Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) => Login(),),
-                                (Route<dynamic> route) => false);
+                            MaterialPageRoute(
+                              builder: (context) => Login(),
+                            ),
+                            (Route<dynamic> route) => false);
                       }),
                 ),
               ],
@@ -91,7 +99,6 @@ class GerenciarFunc extends StatefulWidget {
 }
 
 class _GerenciarFuncState extends State<GerenciarFunc> {
-  
   // ignore: non_constant_identifier_names
   Color main_color = Color(0xff8F4599);
 
@@ -116,7 +123,7 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
                           MaterialPageRoute(
                             builder: (context) => Admin(),
                           ),
-                              (Route<dynamic> route) => false);
+                          (Route<dynamic> route) => false);
                     },
                     child: Image(
                       image: AssetImage('assets/images/voltar.png'),
@@ -125,8 +132,7 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
               ),
               Spacer(),
               Text("GERENCIAR",
-                  style:
-                  TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0)),
+                  style: TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0)),
               Spacer(),
               SizedBox(
                 width: 50.0,
@@ -148,8 +154,8 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
         ),
         body: StreamBuilder<QuerySnapshot>(
             stream: usuarios.snapshots(),
-            builder: (BuildContext context,
-                AsyncSnapshot<QuerySnapshot> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               return Container(
                   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   width: MediaQuery.of(context).size.width,
@@ -163,22 +169,24 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
                     children: [
                       if (!snapshot.hasData)
                         Center(child: CircularProgressIndicator())
-                      else if(snapshot.connectionState == ConnectionState.waiting)
+                      else if (snapshot.connectionState ==
+                          ConnectionState.waiting)
                         Center(child: CircularProgressIndicator())
                       else
                         for (var i in snapshot.data.docs)
                           if (i.get("admin") && i.get("email") != user)
-                            _buildCard(i.get("email"), i.get("nome"),  i.get("senha"),
-                                "administrador", context),
+                            _buildCard(i.get("email"), i.get("nome"),
+                                i.get("senha"), "administrador", context),
                       if (!snapshot.hasData)
                         Center(child: CircularProgressIndicator())
-                      else if(snapshot.connectionState == ConnectionState.waiting)
+                      else if (snapshot.connectionState ==
+                          ConnectionState.waiting)
                         Center(child: CircularProgressIndicator())
                       else
                         for (var i in snapshot.data.docs)
                           if (!i.get("admin") && i.get("email") != user)
-                            _buildCard(i.get("email"), i.get("nome"), i.get("senha"),
-                                "funcionario", context)
+                            _buildCard(i.get("email"), i.get("nome"),
+                                i.get("senha"), "funcionario", context)
                     ],
                   ));
             }));
@@ -186,7 +194,8 @@ class _GerenciarFuncState extends State<GerenciarFunc> {
 }
 
 String atualEmail, atualNome, atualSenha;
-Widget _buildCard(String email, String nome, String senha, String tipo, BuildContext context) {
+Widget _buildCard(String email, String nome, String senha, String tipo,
+    BuildContext context) {
   return Padding(
       padding: EdgeInsets.only(top: 10.0, bottom: 5.0, left: 5.0, right: 5.0),
       child: InkWell(
@@ -210,18 +219,22 @@ Widget _buildCard(String email, String nome, String senha, String tipo, BuildCon
               ),
               child: Column(
                 children: <Widget>[
-                  Expanded(child: Image(
-                    height: 83,
-                    width: 95.0,
-                    image: AssetImage('assets/images/$tipo.png'),
-                    alignment: Alignment.center,
-                  ),),
+                  Expanded(
+                    child: Image(
+                      height: 83,
+                      width: 95.0,
+                      image: AssetImage('assets/images/$tipo.png'),
+                      alignment: Alignment.center,
+                    ),
+                  ),
                   Text(
                     nome,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.bold),
+                        fontSize: 15.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                 ],

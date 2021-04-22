@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter/widgets.dart';
 import 'package:patoburguer/screens/func.dart';
+import 'package:patoburguer/screens/promocao.dart';
 import 'cardapio.dart';
 import 'config.dart';
 import 'contato.dart';
@@ -15,7 +16,10 @@ class Admin extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: main_color,
-        title: Text("ÁREA ADMINISTRATIVA", style: TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0),),
+        title: Text(
+          "ÁREA ADMINISTRATIVA",
+          style: TextStyle(color: Color(0xffF6F6F6), fontSize: 21.0),
+        ),
         centerTitle: true,
       ),
       body: Container(
@@ -35,13 +39,18 @@ class Admin extends StatelessWidget {
             padding: EdgeInsets.all(19.0),
             child: Column(
               children: <Widget>[
-                Button("Gerenciar Usuários", "funcionario", context, GerenciarFunc()),
+                Button("Gerenciar Usuários", "funcionario", context,
+                    GerenciarFunc()),
                 Divider(color: Color(0xffF6F6F6), height: 15.0),
-                Button("Alterar Cardápio", "cardapio", context, GerenciarCardapio()),
+                Button("Alterar Cardápio", "cardapio", context,
+                    GerenciarCardapio()),
                 Divider(color: Color(0xffF6F6F6), height: 15.0),
                 Button("Alterar Contatos", "contato", context, Contato()),
                 Divider(color: Color(0xffF6F6F6), height: 15.0),
-                Button("Configurações", "config", context,  Config()),
+                Button("Promoções", "promo-icone-menu", context,
+                    GerenciarPromocoes()),
+                Divider(color: Color(0xffF6F6F6), height: 15.0),
+                Button("Configurações", "config", context, Config()),
                 SizedBox(height: 30.0),
                 Container(
                   padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -54,8 +63,8 @@ class Admin extends StatelessWidget {
                       padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                       child: Text(
                         "Sair",
-                        style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16.0, fontWeight: FontWeight.bold),
                       ),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0)),
@@ -63,8 +72,10 @@ class Admin extends StatelessWidget {
                       color: main_color,
                       onPressed: () async {
                         Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) => Login(),),
-                                (Route<dynamic> route) => false);
+                            MaterialPageRoute(
+                              builder: (context) => Login(),
+                            ),
+                            (Route<dynamic> route) => false);
                       }),
                 ),
               ],
@@ -90,8 +101,7 @@ Widget Button(String text, String image, BuildContext context, Widget newPage) {
         children: <Widget>[
           Text(
             "$text",
-            style: TextStyle(
-                fontSize: 20.0, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           ),
           Image(
             image: AssetImage('assets/images/$image.png'),
@@ -99,22 +109,21 @@ Widget Button(String text, String image, BuildContext context, Widget newPage) {
           ),
         ],
       ),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
       color: Color(0xffE8E8E8),
       onPressed: () {
-        if(text == "Email") {
+        if (text == "Email") {
           type = "Email";
-        } else if(text == "Nome") {
+        } else if (text == "Nome") {
           type = "Nome";
           item = "Nome";
-        } else if(text == "Senha") {
+        } else if (text == "Senha") {
           type = "Senha";
-        } else if(text == "Preço") {
+        } else if (text == "Preço") {
           item = "Preço";
-        } else if(text == "Descrição") {
+        } else if (text == "Descrição") {
           item = "Descrição";
-        } else if(text == "Imagem") {
+        } else if (text == "Imagem") {
           item = "Imagem";
         }
         Navigator.push(

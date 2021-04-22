@@ -1,46 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/vaz/AndroidStudioProjects/patoburguer/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "D:\\Projects\\patoBurguer\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "/home/vaz/AndroidStudioProjects/patoburguer/build/app/generated/res/google-services/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,716",
-                        "endColumns": "143,81,103,108,119,101,78",
-                        "endOffsets": "194,276,380,489,609,711,790"
-                    },
-                    "to": {
-                        "startLines": "104,105,106,107,108,109,110",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "7730,7874,7956,8060,8169,8289,8391",
-                        "endColumns": "143,81,103,108,119,101,78",
-                        "endOffsets": "7869,7951,8055,8164,8284,8386,8465"
-                    }
-                },
-                {
-                    "source": "/home/vaz/AndroidStudioProjects/patoburguer/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,816",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "465,980"
-                    },
-                    "to": {
-                        "startLines": "112,117",
-                        "startColumns": "4,4",
-                        "startOffsets": "8541,8838",
-                        "endLines": "116,119",
-                        "endColumns": "12,12",
-                        "endOffsets": "8833,9002"
-                    }
-                },
-                {
-                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/28261a2b2b8eaf72e67bc64bdd98fb66/jetified-play-services-base-17.1.0/res/values/values.xml",
+                    "source": "C:\\Users\\Kurak\\.gradle\\caches\\transforms-2\\files-2.1\\28261a2b2b8eaf72e67bc64bdd98fb66\\jetified-play-services-base-17.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,33,46",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -59,7 +23,43 @@
                     }
                 },
                 {
-                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/600ae9dcb738ce264b9b4b2f862c355e/core-1.1.0/res/values/values.xml",
+                    "source": "D:\\Projects\\patoBurguer\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,716",
+                        "endColumns": "143,81,103,108,119,101,78",
+                        "endOffsets": "194,276,380,489,609,711,790"
+                    },
+                    "to": {
+                        "startLines": "104,105,106,107,108,109,110",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "7730,7874,7956,8060,8169,8289,8391",
+                        "endColumns": "143,81,103,108,119,101,78",
+                        "endOffsets": "7869,7951,8055,8164,8284,8386,8465"
+                    }
+                },
+                {
+                    "source": "D:\\Projects\\patoBurguer\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,830",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "472,996"
+                    },
+                    "to": {
+                        "startLines": "112,117",
+                        "startColumns": "4,4",
+                        "startOffsets": "8541,8838",
+                        "endLines": "116,119",
+                        "endColumns": "12,12",
+                        "endOffsets": "8833,9002"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Kurak\\.gradle\\caches\\transforms-2\\files-2.1\\600ae9dcb738ce264b9b4b2f862c355e\\core-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,83,84,88,89,90,91,98,141,173,210",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -78,7 +78,7 @@
                     }
                 },
                 {
-                    "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/31fa2430445b3c93a9b80698fc7720c4/jetified-play-services-basement-17.1.0/res/values/values.xml",
+                    "source": "C:\\Users\\Kurak\\.gradle\\caches\\transforms-2\\files-2.1\\31fa2430445b3c93a9b80698fc7720c4\\jetified-play-services-basement-17.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",
