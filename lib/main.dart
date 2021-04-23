@@ -22,9 +22,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int _currentIndex = 0;
-  
+
   void _apertado(int index) {
     setState(() {
       _currentIndex = index;
@@ -36,15 +35,14 @@ class _HomeState extends State<Home> {
     super.initState();
     Future.delayed(Duration.zero, () {});
   }
-  
 
-  CollectionReference promocoes = FirebaseFirestore.instance.collection('promocoes');
+  CollectionReference promocoes =
+      FirebaseFirestore.instance.collection('promocoes');
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final double categoryHeight = size.height * 0.9;
-
 
     final tabs = [
       SlidingUpPanel(
@@ -71,30 +69,29 @@ class _HomeState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        if(snapshot.connectionState ==
-                            ConnectionState.waiting)
+                        if (snapshot.connectionState == ConnectionState.waiting)
                           Center(
                             child: CircularProgressIndicator(),
                           ),
-                        if(snapshot.hasData == true)
-                          for(var i in snapshot.data.docs)
+                        if (snapshot.hasData == true)
+                          for (var i in snapshot.data.docs)
                             Container(
                               width: 200,
                               margin: EdgeInsets.only(right: 20),
                               height: categoryHeight / 4,
-                              decoration:
-                              BoxDecoration(color: Colors.deepPurple,
-                                  borderRadius: BorderRadius.all(
-                                      Radius.circular(20.0))),
+                              decoration: BoxDecoration(
+                                  color: Colors.deepPurple,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0))),
                               child: Padding(
                                 padding: const EdgeInsets.all(12.0),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment
-                                      .start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
                                       i.get("nome"),
-                                      style: TextStyle(fontSize: 25,
+                                      style: TextStyle(
+                                          fontSize: 25,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -104,8 +101,8 @@ class _HomeState extends State<Home> {
                                     Flexible(
                                       child: Text(
                                         i.get("descricao"),
-                                        style: TextStyle(fontSize: 16,
-                                            color: Colors.white),
+                                        style: TextStyle(
+                                            fontSize: 16, color: Colors.white),
                                       ),
                                     )
                                   ],
@@ -122,34 +119,31 @@ class _HomeState extends State<Home> {
           boxShadow: [
             BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)
           ],
-          borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),
-              topLeft: Radius.circular(20.0)),
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
           panelBuilder: (ScrollController sc) => _scrollingList1(sc),
           minHeight: size.height,
-          maxHeight: size.height
-      ),
+          maxHeight: size.height),
       SlidingUpPanel(
           color: Color(0xffE8E8E8),
           boxShadow: [
             BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)
           ],
-          borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),
-              topLeft: Radius.circular(20.0)),
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
           panelBuilder: (ScrollController sc) => _scrollingList2(sc),
           minHeight: size.height,
-          maxHeight: size.height
-      ),
+          maxHeight: size.height),
       SlidingUpPanel(
           color: Color(0xffE8E8E8),
           boxShadow: [
             BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)
           ],
-          borderRadius: BorderRadius.only(topRight: Radius.circular(20.0),
-              topLeft: Radius.circular(20.0)),
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
           panelBuilder: (ScrollController sc) => _scrollingList3(sc),
           minHeight: size.height,
-          maxHeight: size.height
-      ),
+          maxHeight: size.height),
     ];
 
     return Scaffold(
@@ -189,7 +183,8 @@ class _HomeState extends State<Home> {
           width: MediaQuery.of(context).size.width / 1.5,
           child: Drawer(
             child: ListView(children: <Widget>[
-              DrawerHeader(child: Image.asset("images/pato.png", fit: BoxFit.contain)),
+              DrawerHeader(
+                  child: Image.asset("images/pato.png", fit: BoxFit.contain)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -206,7 +201,10 @@ class _HomeState extends State<Home> {
                       child: Text("Contatos:",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
+                              fontSize: 24,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black))),
                 ],
               ),
               // Ícones de contato
@@ -226,12 +224,16 @@ class _HomeState extends State<Home> {
                                     Colors.redAccent,
                                     Colors.yellow[400]
                                   ]).createShader(bounds),
-                          child:
-                              IconButton(icon: Icon(My_icons.instagram_square, size: 40.0), onPressed: (launchInsta))),
+                          child: IconButton(
+                              icon: Icon(My_icons.instagram_square, size: 40.0),
+                              onPressed: (launchInsta))),
                       Text("@patoburguer",
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                              fontSize: 8.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.amber))
+                              fontSize: 8.0,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.amber))
                     ],
                   ),
                   Column(
@@ -246,17 +248,24 @@ class _HomeState extends State<Home> {
                       Text("",
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                              fontSize: 8.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.amber))
+                              fontSize: 8.0,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.amber))
                     ],
                   ),
                 ],
               ),
               Padding(
-                  padding: const EdgeInsets.only(top: 28.0, bottom: 16.0, left: 16.0, right: 16.0),
-                  child: Text("Atendimento exclusivamente via What's App",
+                  padding: const EdgeInsets.only(
+                      top: 28.0, bottom: 16.0, left: 16.0, right: 16.0),
+                  child: Text("Atendimento exclusivamente via WhatsApp",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
+                          fontSize: 16.0,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black))),
               Container(
                 padding: EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
                 // ignore: deprecated_member_use
@@ -269,11 +278,12 @@ class _HomeState extends State<Home> {
                       Text("Feedbacks",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
+                              fontSize: 22,
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black)),
                       Icon(My_icons.feedbacks,
-                          size: 40.0,
-                          color: Colors.deepPurple
-                      )
+                          size: 40.0, color: Colors.deepPurple)
                     ],
                   ),
                   onPressed: (launchForms),
@@ -314,7 +324,8 @@ class _HomeState extends State<Home> {
 }
 
 Widget _scrollingList0(ScrollController sc) {
-  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+  CollectionReference cardapio =
+      FirebaseFirestore.instance.collection('cardapio');
 
   return ListView.builder(
     physics: BouncingScrollPhysics(),
@@ -325,7 +336,9 @@ Widget _scrollingList0(ScrollController sc) {
         Container(
           decoration: BoxDecoration(
             color: Color(0xffE8E8E8),
-            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20.0),
+                topLeft: Radius.circular(20.0)),
           ),
           padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
           child: Row(
@@ -341,7 +354,8 @@ Widget _scrollingList0(ScrollController sc) {
         ),
         StreamBuilder<QuerySnapshot>(
             stream: cardapio.snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               return ListView(
                 padding: EdgeInsets.only(left: 15.0, right: 15.0),
                 scrollDirection: Axis.vertical,
@@ -363,23 +377,38 @@ Widget _scrollingList0(ScrollController sc) {
                                 Center(child: CircularProgressIndicator())
                               else
                                 for (var i in snapshot.data.docs)
-                                  if (i.get("tipo") == "Lanche" && i.get("foto") != null)
+                                  if (i.get("tipo") == "Lanche" &&
+                                      i.get("foto") != null)
                                     _buildCard(
-                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context),
+                                        i.get("nome"),
+                                        i.get("preco"),
+                                        i.get("descricao"),
+                                        i.get("foto"),
+                                        context),
                               if (!snapshot.hasData)
                                 Center(child: CircularProgressIndicator())
                               else
                                 for (var i in snapshot.data.docs)
-                                  if (i.get("tipo") == "Refrigerante" && i.get("foto") != null)
+                                  if (i.get("tipo") == "Refrigerante" &&
+                                      i.get("foto") != null)
                                     _buildCard(
-                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context),
+                                        i.get("nome"),
+                                        i.get("preco"),
+                                        i.get("descricao"),
+                                        i.get("foto"),
+                                        context),
                               if (!snapshot.hasData)
                                 Center(child: CircularProgressIndicator())
                               else
                                 for (var i in snapshot.data.docs)
-                                  if (i.get("tipo") == "Combo" && i.get("foto") != null)
+                                  if (i.get("tipo") == "Combo" &&
+                                      i.get("foto") != null)
                                     _buildCard(
-                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context)
+                                        i.get("nome"),
+                                        i.get("preco"),
+                                        i.get("descricao"),
+                                        i.get("foto"),
+                                        context)
                             ],
                           )))
                 ],
@@ -391,7 +420,8 @@ Widget _scrollingList0(ScrollController sc) {
 }
 
 Widget _scrollingList1(ScrollController sc) {
-  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+  CollectionReference cardapio =
+      FirebaseFirestore.instance.collection('cardapio');
 
   return ListView.builder(
     physics: BouncingScrollPhysics(),
@@ -402,7 +432,9 @@ Widget _scrollingList1(ScrollController sc) {
         Container(
           decoration: BoxDecoration(
             color: Color(0xffE8E8E8),
-            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20.0),
+                topLeft: Radius.circular(20.0)),
           ),
           padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
           child: Row(
@@ -418,7 +450,8 @@ Widget _scrollingList1(ScrollController sc) {
         ),
         StreamBuilder<QuerySnapshot>(
             stream: cardapio.snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               return ListView(
                 padding: EdgeInsets.only(left: 15.0, right: 15.0),
                 scrollDirection: Axis.vertical,
@@ -440,9 +473,14 @@ Widget _scrollingList1(ScrollController sc) {
                                 Center(child: CircularProgressIndicator())
                               else
                                 for (var i in snapshot.data.docs)
-                                  if (i.get("tipo") == "Lanche" && i.get("foto") != null)
+                                  if (i.get("tipo") == "Lanche" &&
+                                      i.get("foto") != null)
                                     _buildCard(
-                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context)
+                                        i.get("nome"),
+                                        i.get("preco"),
+                                        i.get("descricao"),
+                                        i.get("foto"),
+                                        context)
                             ],
                           )))
                 ],
@@ -454,7 +492,8 @@ Widget _scrollingList1(ScrollController sc) {
 }
 
 Widget _scrollingList2(ScrollController sc) {
-  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+  CollectionReference cardapio =
+      FirebaseFirestore.instance.collection('cardapio');
 
   return ListView.builder(
     physics: BouncingScrollPhysics(),
@@ -465,7 +504,9 @@ Widget _scrollingList2(ScrollController sc) {
         Container(
           decoration: BoxDecoration(
             color: Color(0xffE8E8E8),
-            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20.0),
+                topLeft: Radius.circular(20.0)),
           ),
           padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
           child: Row(
@@ -481,7 +522,8 @@ Widget _scrollingList2(ScrollController sc) {
         ),
         StreamBuilder<QuerySnapshot>(
             stream: cardapio.snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               return ListView(
                 padding: EdgeInsets.only(left: 15.0, right: 15.0),
                 scrollDirection: Axis.vertical,
@@ -503,9 +545,14 @@ Widget _scrollingList2(ScrollController sc) {
                                 Center(child: CircularProgressIndicator())
                               else
                                 for (var i in snapshot.data.docs)
-                                  if (i.get("tipo") == "Refrigerante" && i.get("foto") != null)
+                                  if (i.get("tipo") == "Refrigerante" &&
+                                      i.get("foto") != null)
                                     _buildCard(
-                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context),
+                                        i.get("nome"),
+                                        i.get("preco"),
+                                        i.get("descricao"),
+                                        i.get("foto"),
+                                        context),
                             ],
                           )))
                 ],
@@ -517,7 +564,8 @@ Widget _scrollingList2(ScrollController sc) {
 }
 
 Widget _scrollingList3(ScrollController sc) {
-  CollectionReference cardapio = FirebaseFirestore.instance.collection('cardapio');
+  CollectionReference cardapio =
+      FirebaseFirestore.instance.collection('cardapio');
 
   return ListView.builder(
     physics: BouncingScrollPhysics(),
@@ -528,7 +576,9 @@ Widget _scrollingList3(ScrollController sc) {
         Container(
           decoration: BoxDecoration(
             color: Color(0xffE8E8E8),
-            borderRadius: BorderRadius.only(topRight: Radius.circular(20.0), topLeft: Radius.circular(20.0)),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20.0),
+                topLeft: Radius.circular(20.0)),
           ),
           padding: const EdgeInsets.fromLTRB(25.0, 25.0, 20.0, 25.0),
           child: Row(
@@ -544,7 +594,8 @@ Widget _scrollingList3(ScrollController sc) {
         ),
         StreamBuilder<QuerySnapshot>(
             stream: cardapio.snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               return ListView(
                 padding: EdgeInsets.only(left: 15.0, right: 15.0),
                 scrollDirection: Axis.vertical,
@@ -566,9 +617,14 @@ Widget _scrollingList3(ScrollController sc) {
                                 Center(child: CircularProgressIndicator())
                               else
                                 for (var i in snapshot.data.docs)
-                                  if (i.get("tipo") == "Combo" && i.get("foto") != null)
+                                  if (i.get("tipo") == "Combo" &&
+                                      i.get("foto") != null)
                                     _buildCard(
-                                        i.get("nome"), i.get("preco"), i.get("descricao"), i.get("foto"), context)
+                                        i.get("nome"),
+                                        i.get("preco"),
+                                        i.get("descricao"),
+                                        i.get("foto"),
+                                        context)
                             ],
                           )))
                 ],
@@ -581,7 +637,8 @@ Widget _scrollingList3(ScrollController sc) {
 
 String nomeAtual, descricaoAtual, fotoAtual;
 dynamic precoAtual;
-Widget _buildCard(String nome, dynamic preco, String descricao, String foto, BuildContext context) {
+Widget _buildCard(String nome, dynamic preco, String descricao, String foto,
+    BuildContext context) {
   return Padding(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 10.0, right: 10.0),
       child: InkWell(
@@ -598,7 +655,10 @@ Widget _buildCard(String nome, dynamic preco, String descricao, String foto, Bui
           child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
-                boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)],
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey, spreadRadius: 1.0, blurRadius: 5.0)
+                ],
                 color: Colors.white,
               ),
               child: Column(
@@ -618,23 +678,33 @@ Widget _buildCard(String nome, dynamic preco, String descricao, String foto, Bui
                       child: SingleChildScrollView(
                     child: Text(
                       nome,
-                      style: TextStyle(fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                   )),
                   Container(
                       height: 30.0,
                       decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(12.0), bottomRight: Radius.circular(12.0)),
-                        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 1.0, blurRadius: 1.0)],
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12.0),
+                            bottomRight: Radius.circular(12.0)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey,
+                              spreadRadius: 1.0,
+                              blurRadius: 1.0)
+                        ],
                         color: Colors.orange[400],
                         border: Border.all(color: Colors.orange[800]),
                       ),
                       alignment: Alignment.center,
                       child: Text(
                         "R\$$preco",
-                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       )),
                 ],
@@ -644,12 +714,11 @@ Widget _buildCard(String nome, dynamic preco, String descricao, String foto, Bui
 //Instagram
 void launchInsta() async {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  DocumentSnapshot result = await _firestore.collection("contatos").doc("VuuKmvF6cXb8iGhEZYvV").get();
+  DocumentSnapshot result =
+      await _firestore.collection("contatos").doc("VuuKmvF6cXb8iGhEZYvV").get();
   final urlInsta = "https://www.instagram.com/" + result.get("link").toString();
   if (await canLaunch(urlInsta)) {
-    await launch(
-        urlInsta,
-        universalLinksOnly: true);
+    await launch(urlInsta, universalLinksOnly: true);
   } else {
     throw 'Could not launch $urlInsta';
   }
@@ -669,13 +738,12 @@ void launchForms() async {
 //Rick Rolled
 void launchWhats() async {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  DocumentSnapshot result = await _firestore.collection("contatos").doc("EED447nsMLcjUfoEqmSC").get();
-  final urlWhats = "https://api.whatsapp.com/send?phone=55" + result.get("link").toString();
+  DocumentSnapshot result =
+      await _firestore.collection("contatos").doc("EED447nsMLcjUfoEqmSC").get();
+  final urlWhats =
+      "https://api.whatsapp.com/send?phone=55" + result.get("link").toString();
   if (await canLaunch(urlWhats)) {
-    await launch(
-        urlWhats,
-        universalLinksOnly: true
-    );
+    await launch(urlWhats, universalLinksOnly: true);
   } else {
     throw 'Could not launch $urlWhats';
   }
@@ -719,14 +787,15 @@ class _DetailsState extends State<Details> {
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
-                ))),
+              bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16),
+            ))),
         drawer: SizedBox(
             width: MediaQuery.of(context).size.width / 1.5,
             child: Drawer(
               child: ListView(children: <Widget>[
-                DrawerHeader(child: Image.asset("images/pato.png", fit: BoxFit.contain)),
+                DrawerHeader(
+                    child: Image.asset("images/pato.png", fit: BoxFit.contain)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -743,7 +812,10 @@ class _DetailsState extends State<Details> {
                         child: Text("Contatos:",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
+                                fontSize: 24,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black))),
                   ],
                 ),
                 // Ícones de contato
@@ -755,20 +827,25 @@ class _DetailsState extends State<Details> {
                         ShaderMask(
                             blendMode: BlendMode.srcIn,
                             shaderCallback: (bounds) => LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Colors.blue[600],
-                                  Colors.deepPurpleAccent,
-                                  Colors.redAccent,
-                                  Colors.yellow[400]
-                                ]).createShader(bounds),
-                            child:
-                            IconButton(icon: Icon(My_icons.instagram_square, size: 40.0), onPressed: (launchInsta))),
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [
+                                      Colors.blue[600],
+                                      Colors.deepPurpleAccent,
+                                      Colors.redAccent,
+                                      Colors.yellow[400]
+                                    ]).createShader(bounds),
+                            child: IconButton(
+                                icon:
+                                    Icon(My_icons.instagram_square, size: 40.0),
+                                onPressed: (launchInsta))),
                         Text("@patoburguer",
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                                fontSize: 8.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.amber))
+                                fontSize: 8.0,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.amber))
                       ],
                     ),
                     Column(
@@ -783,19 +860,27 @@ class _DetailsState extends State<Details> {
                         Text("",
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                                fontSize: 8.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.amber))
+                                fontSize: 8.0,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.amber))
                       ],
                     ),
                   ],
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(top: 28.0, bottom: 16.0, left: 16.0, right: 16.0),
-                    child: Text("Atendimento exclusivamente via What's App",
+                    padding: const EdgeInsets.only(
+                        top: 28.0, bottom: 16.0, left: 16.0, right: 16.0),
+                    child: Text("Atendimento exclusivamente\nvia WhatsApp",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
+                            fontSize: 16.0,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black))),
                 Container(
-                  padding: EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+                  padding:
+                      EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
                   // ignore: deprecated_member_use
                   child: FlatButton(
                     shape: RoundedRectangleBorder(
@@ -806,11 +891,12 @@ class _DetailsState extends State<Details> {
                         Text("Feedbacks",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
+                                fontSize: 22,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black)),
                         Icon(My_icons.feedbacks,
-                            size: 40.0,
-                            color: Colors.deepPurple
-                        )
+                            size: 40.0, color: Colors.deepPurple)
                       ],
                     ),
                     onPressed: (launchForms),
@@ -818,9 +904,6 @@ class _DetailsState extends State<Details> {
                 )
               ]),
             )),
-        body: MyHomePage()
-    );
+        body: MyHomePage());
   }
 }
-
-
