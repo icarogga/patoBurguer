@@ -5,6 +5,8 @@ import 'package:cardapio/assets/My_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
+import 'details.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -20,57 +22,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   int _currentIndex = 0;
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration.zero, () {});
-  }
-
-//Instagram
-  void launchInsta() async {
-    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-    DocumentSnapshot result = await _firestore.collection("contatos").doc("VuuKmvF6cXb8iGhEZYvV").get();
-    final urlInsta = "https://www.instagram.com/" + result.get("link").toString();
-    if (await canLaunch(urlInsta)) {
-      await launch(
-          urlInsta,
-          universalLinksOnly: true);
-    } else {
-      throw 'Could not launch $urlInsta';
-    }
-  }
-
-//Feedback
-  void launchForms() async {
-    const urlForms =
-        'https://docs.google.com/forms/d/e/1FAIpQLSfDsCCA8KyAA068h0vF-9vQeyhyRkHi9k7v9DYyqAMw_nBFjA/viewform?usp=sf_link';
-    if (await canLaunch(urlForms)) {
-      await launch(urlForms);
-    } else {
-      throw 'Could not launch $urlForms';
-    }
-  }
-
-//Rick Rolled
-  void launchWhats() async {
-    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-    DocumentSnapshot result = await _firestore.collection("contatos").doc("EED447nsMLcjUfoEqmSC").get();
-    final urlWhats = "https://api.whatsapp.com/send?phone=55" + result.get("link").toString();
-    if (await canLaunch(urlWhats)) {
-      await launch(
-          urlWhats,
-          universalLinksOnly: true
-      );
-    } else {
-      throw 'Could not launch $urlWhats';
-    }
-  }
-
+  
   void _apertado(int index) {
     setState(() {
       _currentIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {});
   }
 
   @override
@@ -593,27 +557,27 @@ class _HomeState extends State<Home> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 24.0),
-                    child: IconButton(
-                      icon: Icon(
-                        My_icons.feedbacks,
-                        color: Colors.deepPurple,
-                        size: 40.0,
-                      ),
-                      onPressed: (launchForms),
-                    ),
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(bottom: 24.0, left: 16.0),
-                      child: Text("Feedbacks",
+              Container(
+                padding: EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+                // ignore: deprecated_member_use
+                child: FlatButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("Feedbacks",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
-                ],
+                              fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
+                      Icon(My_icons.feedbacks,
+                          size: 40.0,
+                          color: Colors.deepPurple
+                      )
+                    ],
+                  ),
+                  onPressed: (launchForms),
+                ),
               )
             ]),
           )),
@@ -915,11 +879,22 @@ Widget _scrollingList3(ScrollController sc) {
   );
 }
 
+String nomeAtual, descricaoAtual, fotoAtual;
+dynamic precoAtual;
 Widget _buildCard(String nome, dynamic preco, String descricao, String foto, BuildContext context) {
   return Padding(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 10.0, right: 10.0),
       child: InkWell(
-          onTap: () {},
+          onTap: () {
+            nomeAtual = nome;
+            descricaoAtual = descricao;
+            fotoAtual = foto;
+            precoAtual = preco;
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Details()),
+            );
+          },
           child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
@@ -965,3 +940,187 @@ Widget _buildCard(String nome, dynamic preco, String descricao, String foto, Bui
                 ],
               ))));
 }
+
+//Instagram
+void launchInsta() async {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  DocumentSnapshot result = await _firestore.collection("contatos").doc("VuuKmvF6cXb8iGhEZYvV").get();
+  final urlInsta = "https://www.instagram.com/" + result.get("link").toString();
+  if (await canLaunch(urlInsta)) {
+    await launch(
+        urlInsta,
+        universalLinksOnly: true);
+  } else {
+    throw 'Could not launch $urlInsta';
+  }
+}
+
+//Feedback
+void launchForms() async {
+  const urlForms =
+      'https://docs.google.com/forms/d/e/1FAIpQLSfDsCCA8KyAA068h0vF-9vQeyhyRkHi9k7v9DYyqAMw_nBFjA/viewform?usp=sf_link';
+  if (await canLaunch(urlForms)) {
+    await launch(urlForms);
+  } else {
+    throw 'Could not launch $urlForms';
+  }
+}
+
+//Rick Rolled
+void launchWhats() async {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  DocumentSnapshot result = await _firestore.collection("contatos").doc("EED447nsMLcjUfoEqmSC").get();
+  final urlWhats = "https://api.whatsapp.com/send?phone=55" + result.get("link").toString();
+  if (await canLaunch(urlWhats)) {
+    await launch(
+        urlWhats,
+        universalLinksOnly: true
+    );
+  } else {
+    throw 'Could not launch $urlWhats';
+  }
+}
+
+class Details extends StatefulWidget {
+  @override
+  _DetailsState createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Row(children: <Widget>[
+              SizedBox(
+                width: 45.0,
+                height: 80.0,
+                child: Builder(
+                  builder: (context) => IconButton(
+                    icon: Icon(Icons.menu_sharp, color: Colors.purple),
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                  ),
+                ),
+              ),
+              Spacer(),
+              Image(
+                image: AssetImage('images/Logo_letras.png'),
+                fit: BoxFit.cover,
+                height: 56,
+              ),
+              Spacer(),
+              SizedBox(
+                width: 45.0,
+                height: 80.0,
+              )
+            ]),
+            toolbarHeight: 56.0,
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(16),
+                  bottomRight: Radius.circular(16),
+                ))),
+        drawer: SizedBox(
+            width: MediaQuery.of(context).size.width / 1.5,
+            child: Drawer(
+              child: ListView(children: <Widget>[
+                DrawerHeader(child: Image.asset("images/pato.png", fit: BoxFit.contain)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      child: Icon(
+                        My_icons.contato,
+                        color: Colors.deepPurple,
+                        size: 40.0,
+                      ),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                        child: Text("Contatos:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
+                  ],
+                ),
+                // Ícones de contato
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: <Widget>[
+                        ShaderMask(
+                            blendMode: BlendMode.srcIn,
+                            shaderCallback: (bounds) => LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Colors.blue[600],
+                                  Colors.deepPurpleAccent,
+                                  Colors.redAccent,
+                                  Colors.yellow[400]
+                                ]).createShader(bounds),
+                            child:
+                            IconButton(icon: Icon(My_icons.instagram_square, size: 40.0), onPressed: (launchInsta))),
+                        Text("@patoburguer",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                fontSize: 8.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.amber))
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        IconButton(
+                            icon: Icon(
+                              My_icons.whatsapp_square,
+                              color: Colors.green,
+                              size: 40.0,
+                            ),
+                            onPressed: (launchWhats)),
+                        Text("",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                fontSize: 8.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.amber))
+                      ],
+                    ),
+                  ],
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(top: 28.0, bottom: 16.0, left: 16.0, right: 16.0),
+                    child: Text("Atendimento exclusivamente via What's App",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 16.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black))),
+                Container(
+                  padding: EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+                  // ignore: deprecated_member_use
+                  child: FlatButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Feedbacks",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 24, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.black)),
+                        Icon(My_icons.feedbacks,
+                            size: 40.0,
+                            color: Colors.deepPurple
+                        )
+                      ],
+                    ),
+                    onPressed: (launchForms),
+                  ),
+                )
+              ]),
+            )),
+        body: MyHomePage()
+    );
+  }
+}
+
+
