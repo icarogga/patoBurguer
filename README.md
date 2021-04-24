@@ -6,8 +6,8 @@
    
    - [Sobre 📖](#sobre-)
    - [Preview Usuário 📱](#preview-usuário-)
-   - [Preview Admin 📱](#preview-admin-)
-   - [Funcionalidades Admin 🛠️](#funcionalidades-admin-%EF%B8%8F)
+   - [Preview Admin e Funcionário 📱](#preview-admin-e-funcionário-)
+   - [Funcionalidades Admin e Funcionário 🛠️](#funcionalidades-admin-e-funcionário-%EF%B8%8F)
    - [Funcionalidades Usuário 🛠️](#funcionalidades-usuário-%EF%B8%8F)
    - [Como utilizar 🤔](#como-utilizar-)
 
@@ -23,19 +23,19 @@
 
 ---
 
-<h2 align="center">Preview Admin 📱</h2>
+<h2 align="center">Preview Usuário 📱</h2>
 
 🧐📂
 
 ---
 
-<h2 align="center">Preview Usuário 📱</h2>
+<h2 align="center">Preview Admin e Funcionário 📱</h2>
    
 🧐📂
 
 ---
 
-<h2 align="center">Funcionalidades Admin 🛠️</h2>
+<h2 align="center">Funcionalidades Admin e Funcionário 🛠️</h2>
 
    <p>
 
