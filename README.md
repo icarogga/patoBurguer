@@ -18,7 +18,7 @@
 <h2 align="center">Sobre 📖</h2>
    
 <p align="center">
-  Buscando preencher a necessidade de um aplicativo que liste todo o cardápio de uma hamburgueria, o projeto tem como finalidade entregar dois aplicativos, sendo um para o usuário, onde o mesmo poderá ver todos os itens disponíveis por meio de uma interface intuitiva, simples e que vai lhe deixar com água na boca, e a partir do próprio app, ser redirecionado para o Whatsaap para realizar o pedido. E outro aplicativo para o uso dos administradores e funcionários, com o intuito de realizar alterações no cardápio, como adicionar/remover/alterar itens, ou até mesmo adicionar/remover/alterar promoções. Sendo que os administradores também tem uma funcionalidade exclusiva, lhes dando a possibilidade de adicionar e remover funcionários ou outros administradores.
+  Buscando preencher a necessidade de um aplicativo que liste todo o cardápio de uma hamburgueria, o projeto tem como finalidade entregar dois aplicativos, sendo um para o usuário, onde o mesmo poderá ver todos os itens disponíveis por meio de uma interface intuitiva, simples e que vai lhe deixar com água na boca, e a partir do próprio app, ser redirecionado para o Whatsapp para realizar o pedido. E outro aplicativo para o uso dos administradores e funcionários, com o intuito de realizar alterações no cardápio, como adicionar/remover/alterar itens, ou até mesmo adicionar/remover/alterar promoções. Sendo que os administradores também tem uma funcionalidade exclusiva, lhes dando a possibilidade de adicionar e remover funcionários ou outros administradores.
 </p>
 
 ---
