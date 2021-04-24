@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/vaz/AndroidStudioProjects/cardapio/build/firebase_core/intermediates/res/merged/release/drawable/notification_icon_background.xml",
+        "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/4600e27e70f6025c2b0e0121769e6282/core-1.1.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/vaz/AndroidStudioProjects/cardapio/build/firebase_core/intermediates/res/merged/release/drawable/notification_bg.xml",
+        "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/4600e27e70f6025c2b0e0121769e6282/core-1.1.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/home/vaz/AndroidStudioProjects/cardapio/build/firebase_core/intermediates/res/merged/release/drawable/notification_bg_low.xml",
+        "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/4600e27e70f6025c2b0e0121769e6282/core-1.1.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/home/vaz/AndroidStudioProjects/cardapio/build/firebase_core/intermediates/res/merged/release/drawable/notification_tile_bg.xml",
+        "source": "/home/vaz/.gradle/caches/transforms-2/files-2.1/4600e27e70f6025c2b0e0121769e6282/core-1.1.0/res/drawable/notification_tile_bg.xml"
+    }
+]
