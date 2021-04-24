@@ -5,10 +5,10 @@
    <p>
    
    - [Sobre 📖](#sobre-)
-   - [Preview Usuário 📱](#preview-usuario-)
-   - [Preview Admin/Func 📱](#preview-admin/func-)
-   - [Funcionalidades Admin/Func 🛠️](#funcionalidades-admin/func-%EF%B8%8F)
-   - [Funcionalidades Usuário 🛠️](#funcionalidades-user-%EF%B8%8F)
+   - [Preview Usuário 📱](#preview-usuário-)
+   - [Preview Admin_Func 📱](#preview-admin_func-)
+   - [Funcionalidades Admin_Func 🛠️](#funcionalidades-admin_func-%EF%B8%8F)
+   - [Funcionalidades Usuário 🛠️](#funcionalidades-usuário-%EF%B8%8F)
    - [Como utilizar 🤔](#como-utilizar-)
 
    </p>
