@@ -23,7 +23,7 @@
 
 ---
 
-<h2 align="center">Preview Admin/Func 📱</h2>
+<h2 align="center">Preview Admin 📱</h2>
 
 🧐📂
 
@@ -35,7 +35,7 @@
 
 ---
 
-<h2 align="center">Funcionalidades Admin/Func 🛠️</h2>
+<h2 align="center">Funcionalidades Admin 🛠️</h2>
 
    <p>
 
