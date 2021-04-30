@@ -1,14 +1,21 @@
 <h1 align="center">Pato Burguer</h1>
 
+<h4 align="center"> 
+	Concluído ✔️
+</h4>
+
+---
+
    <h2 align="center">Tópicos 📋</h2>
 
    <p>
    
    - [Sobre 📖](#sobre-)
-   - [Preview Usuário 📱](#preview-usuário-)
-   - [Preview Admin e Funcionário 📱](#preview-admin-e-funcionário-)
+   - [Layout Usuário 📱](#layout-usuário-)
+   - [Layout Admin e Funcionário 📱](#layout-admin-e-funcionário-)
    - [Funcionalidades Admin e Funcionário 🛠️](#funcionalidades-admin-e-funcionário-%EF%B8%8F)
    - [Funcionalidades Usuário 🛠️](#funcionalidades-usuário-%EF%B8%8F)
+   - [Tecnologias 📲](#tecnologias-)
    - [Como utilizar 🤔](#como-utilizar-)
 
    </p>
@@ -23,7 +30,7 @@
 
 ---
 
-<h2 align="center">Preview Usuário 📱</h2>
+<h2 align="center">Layout Usuário 📱</h2>
   
   <p align="center"> 
       <img src="preview/10.jpeg" width="25%">
@@ -36,7 +43,7 @@
 
 ---
 
-<h2 align="center">Preview Admin e Funcionário 📱</h2>
+<h2 align="center">Layout Admin e Funcionário 📱</h2>
    
    <p align="center"> 
       <img src="preview/1.jpeg" width="25%">
@@ -81,6 +88,18 @@
 
 ---
 
+<h2 align="center">Tecnologias 📲</h2>
+
+   <p>
+
+-   **[DART](https://dart.dev)**
+-   **[FLUTTER](https://flutter.dev)**
+-   **[FIREBASE](https://firebase.google.com/?hl=pt-br)**
+
+   </p>
+
+---
+
 <h2 align="center">Como utilizar 🤔</h2>
 
    ```
@@ -99,6 +118,24 @@
 
 ---
 
+## 💪 Como contribuir para o projeto
+
+1. Faça um **fork** do projeto.
+2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
+3. Salve as alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`
+4. Envie as suas alterações: `git push origin my-feature`
+> Caso tenha alguma dúvida confira este [guia de como contribuir no GitHub](./CONTRIBUTING.md)
+
+---
+
    >Este projeto foi desenvolvido com o ❤️ por **[@Ícaro Coêlho](https://github.com/icarogga?tab=following)**, **[@José Pedro](https://github.com/PeterYouseph)**, **[Letícia Yurie](https://github.com/leyurie)**, **[@Luis Gustavo](https://github.com/lgrotrab)**, **[@Vinicius Shinohara](https://github.com/ChuunibyouYuuta)**, **[@Vitor Vaz](https://github.com/vitorvazmaciel)**
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+<img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 
 ---
