@@ -25,26 +25,26 @@
 
 <h2 align="center">Preview Usuário 📱</h2>
 
-   <img src="img/10.jpeg" width="33.3333333%">
-   <img src="img/11.jpeg" width="33.3333333%">
-   <img src="img/12.jpeg" width="33.3333333%">
-   <img src="img/13.jpeg" width="33.3333333%">
-   <img src="img/14.jpeg" width="33.3333333%">
-   <img src="img/15.jpeg" width="33.3333333%">
+   <img src="preview/10.jpeg" width="33.3333333%">
+   <img src="preview/11.jpeg" width="33.3333333%">
+   <img src="preview/12.jpeg" width="33.3333333%">
+   <img src="preview/13.jpeg" width="33.3333333%">
+   <img src="preview/14.jpeg" width="33.3333333%">
+   <img src="preview/15.jpeg" width="33.3333333%">
 
 ---
 
 <h2 align="center">Preview Admin e Funcionário 📱</h2>
    
-   <img src="img/1.jpeg" width="33.3333333%">
-   <img src="img/2.jpeg" width="33.3333333%">
-   <img src="img/3.jpeg" width="33.3333333%">
-   <img src="img/4.jpeg" width="33.3333333%">
-   <img src="img/5.jpeg" width="33.3333333%">
-   <img src="img/6.jpeg" width="33.3333333%">
-   <img src="img/7.jpeg" width="33.3333333%">
-   <img src="img/8.jpeg" width="33.3333333%">
-   <img src="img/9.jpeg" width="33.3333333%">
+   <img src="preview/1.jpeg" width="33.3333333%">
+   <img src="preview/2.jpeg" width="33.3333333%">
+   <img src="preview/3.jpeg" width="33.3333333%">
+   <img src="preview/4.jpeg" width="33.3333333%">
+   <img src="preview/5.jpeg" width="33.3333333%">
+   <img src="preview/6.jpeg" width="33.3333333%">
+   <img src="preview/7.jpeg" width="33.3333333%">
+   <img src="preview/8.jpeg" width="33.3333333%">
+   <img src="preview/9.jpeg" width="33.3333333%">
 
 ---
 
