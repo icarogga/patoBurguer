@@ -127,7 +127,7 @@
 
 ---
 
-   >Este projeto foi desenvolvido com o ❤️ por **[@Ícaro Coêlho](https://github.com/icarogga?tab=following)**, **[@José Pedro](https://github.com/PeterYouseph)**, **[@Letícia Yurie](https://github.com/leyurie)**, **[@Luis Gustavo](https://github.com/lgrotrab)**, **[@Vinicius Shinohara](https://github.com/ChuunibyouYuuta)**, **[@Vitor Vaz](https://github.com/vitorvazmaciel)**
+   >Este projeto foi desenvolvido com o ❤️ por **[@Ícaro Coêlho](https://github.com/icarogga)**, **[@José Pedro](https://github.com/PeterYouseph)**, **[@Letícia Yurie](https://github.com/leyurie)**, **[@Luis Gustavo](https://github.com/lgrotrab)**, **[@Vinicius Shinohara](https://github.com/ChuunibyouYuuta)**, **[@Vitor Vaz](https://github.com/vitorvazmaciel)**
 
 ---
 
